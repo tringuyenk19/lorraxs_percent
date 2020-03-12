@@ -4,7 +4,7 @@ local currentAction = nil
 Citizen.CreateThread(function()
     while ESX == nil do 
         Citizen.Wait(1)
-        TriggerEvent('esx:getShjustinaredObjjustinect', function(obj) ESX = obj end )
+        TriggerEvent('esx:getSharedObject', function(obj) ESX = obj end )
     end
 end)
 RegisterNetEvent('lorraxs_progress')
@@ -19,7 +19,7 @@ AddEventHandler('lorraxs_progress', function(time, isBusyReturn)
             thoigian = time
         }))
     else 
-        ESX.ShowNotification('Bạn đang bận, không thể thực hiện thao tác này')
+        ESX.ShowNotification('Busy')
 		isBusyReturn(true)
         --cb(false)
     end
@@ -37,7 +37,7 @@ AddEventHandler('lorraxs_progressUp', function(time, isBusyReturn)
             thoigian = time
         }))
     else 
-        ESX.ShowNotification('Bạn đang bận, không thể thực hiện thao tác này')
+        ESX.ShowNotification('Busy')
 		isBusyReturn(true)
         --cb(false)
     end
