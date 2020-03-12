@@ -1,12 +1,6 @@
-ESX = nil 
+
 local isBusy = false
 local currentAction = nil
-Citizen.CreateThread(function()
-    while ESX == nil do 
-        Citizen.Wait(1)
-        TriggerEvent('esx:getSharedObject', function(obj) ESX = obj end )
-    end
-end)
 RegisterNetEvent('lorraxs_progress')
 AddEventHandler('lorraxs_progress', function(time, isBusyReturn)
     if not isBusy then 
@@ -14,13 +8,13 @@ AddEventHandler('lorraxs_progress', function(time, isBusyReturn)
 		print('asdasdasd')
         currentAction = func
         isBusyReturn(false)		
-        SendNuiMessage(json.encode({
+        --SendNuiMessage(json.encode({
             type = 'open',
             thoigian = time
         }))
     else 
-        ESX.ShowNotification('Busy')
-		isBusyReturn(true)
+        --ESX.ShowNotification('Busy')
+	isBusyReturn(true)
         --cb(false)
     end
 end)
@@ -29,7 +23,6 @@ RegisterNetEvent('lorraxs_progressUp')
 AddEventHandler('lorraxs_progressUp', function(time, isBusyReturn)
     if not isBusy then 
         isBusy = true 
-		print('asdasdasd')
         currentAction = func
         isBusyReturn(false)		
         SendNuiMessage(json.encode({
@@ -37,8 +30,8 @@ AddEventHandler('lorraxs_progressUp', function(time, isBusyReturn)
             thoigian = time
         }))
     else 
-        ESX.ShowNotification('Busy')
-		isBusyReturn(true)
+        --ESX.ShowNotification('Busy')
+	isBusyReturn(true)
         --cb(false)
     end
 end)
