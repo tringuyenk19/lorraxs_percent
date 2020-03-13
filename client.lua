@@ -8,7 +8,7 @@ AddEventHandler('lorraxs_progress', function(time, isBusyReturn)
 		print('asdasdasd')
         currentAction = func
         isBusyReturn(false)		
-        --SendNuiMessage(json.encode({
+        SendNuiMessage(json.encode({
             type = 'open',
             thoigian = time
         }))
