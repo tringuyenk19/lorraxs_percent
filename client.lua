@@ -5,8 +5,6 @@ RegisterNetEvent('lorraxs_progress')
 AddEventHandler('lorraxs_progress', function(time, isBusyReturn)
     if not isBusy then 
         isBusy = true 
-		print('asdasdasd')
-        currentAction = func
         isBusyReturn(false)		
         SendNuiMessage(json.encode({
             type = 'open',
@@ -23,7 +21,6 @@ RegisterNetEvent('lorraxs_progressUp')
 AddEventHandler('lorraxs_progressUp', function(time, isBusyReturn)
     if not isBusy then 
         isBusy = true 
-        currentAction = func
         isBusyReturn(false)		
         SendNuiMessage(json.encode({
             type = 'openUp',
